@@ -1,4 +1,2 @@
-def greet():
-    return "Hello suruchi!"
-if 2+2 == 4:
-    print(greet())
+def test_addition():
+    assert 1 + 1 == 2
