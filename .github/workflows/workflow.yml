@@ -11,16 +11,16 @@ on:      #trigger
 jobs:
   build:
      runs-on: ubuntu-latest    #one vm
-    steps:
+      steps:
     #step1
-      - name: checkout the repo
-       uses: actions/checkout@v2
+        - name: checkout the repo
+          uses: actions/checkout@v2
     #step2
-      - name: setup java
-        uses: actions/setup-java@v2
+        - name: setup java
+          uses: actions/setup-java@v2
     #step3
-      - name: install pytest #as we dont have a specific req.txt file in folder from where it can get the pytest
-       run: pip install pytest
+        - name: install pytest #as we dont have a specific req.txt file in folder from where it can get the pytest
+          run: pip install pytest
     #step4
-      - name: run test
-        run: pytest  
+        - name: run test
+          run: pytest  
