@@ -9,8 +9,8 @@ on:      #trigger
       - main
 
 jobs:
-  build:
-     runs-on: ubuntu-latest    #one vm
+    build:
+      runs-on: ubuntu-latest    #one vm
       steps:
     #step1
         - name: checkout the repo
