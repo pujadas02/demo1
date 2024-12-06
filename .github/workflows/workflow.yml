@@ -8,9 +8,12 @@ on:      #trigger
     branches:
       - main
 
+env:  
+  VAR: 'This is global'
 jobs:
     build:
       runs-on: ubuntu-latest    #one vm
+      
       steps:
     #step1
         - name: checkout the repo
@@ -24,3 +27,24 @@ jobs:
     #step4
         - name: run test
           run: pytest  
+          if: success()
+    
+    job2:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+          - name: checkout the repo
+            uses: actions/checkout@v2
+  
+          - name: setup python
+            uses: actions/setup-python@v2
+          - name: use of env
+            run: echo "this is $VAR"
+          - name: use of id nd if
+            id: hy
+            run: echo "::set-output name=res::well"
+          - name: use
+            run: echo "hy"
+            if: ${{steps.hy.outputs.res=='well'}}
+
+          
